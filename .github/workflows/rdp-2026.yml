@@ -87,21 +87,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install gdown
-
-        # Desktop path
-        $DESKTOP = [Environment]::GetFolderPath("Desktop")
-
-        # -------- File 1 : Google Drive file --------
-        gdown "https://drive.google.com/uc?id=166R8NrD3kHJZTNdhI2P8NIEzurgpf5Gp" -O "$DESKTOP\fb.mumudata"
-
-        # -------- File 2 : MuMu Installer --------
-        $mumuPath = "$DESKTOP\MuMuSetup.exe"
-        iwr "https://a11.gdl.netease.com/MuMu_5.0.7_gw-win-download_all_1761811684.exe?n=MuMu_5.0.7_xR9fESC.exe&key1=17d527515c89765ca756ad7419678abe&key2=694d6e16" -OutFile $mumuPath
-
-        # Run MuMu installer from Desktop
-        Start-Process $mumuPath -Wait
-
-        # -------- Python packages --------
         py -m install customtkinter
         py -m install uiautomator2
         py -m install playwright
